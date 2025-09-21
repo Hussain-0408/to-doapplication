@@ -49,3 +49,16 @@
     color: black;
     font-family: sans-serif;
 }
+@media (max-width:576px) {
+    .Input-Rootcontainer{
+        width: 100%;
+    }
+    .input-childcontainer{
+        display: inline;
+    }
+    .button-container{
+        margin: 10px;
+        margin-left: 0px;
+    }
+    
+}

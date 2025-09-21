@@ -5,14 +5,18 @@ function Inputarea({ tasks, setTasks }) {
   const [task, setTask] = useState("");
 
   const addTask = () => {
+   
     if (task.trim() === "") {
       alert("Please enter a task");
       return;
     }
-    setTasks([...tasks, { text: task, completed: false }]);
-    setTask("");
-    alert("Task added successfully");
     
+      setTask("");
+    const confirmation = window.confirm("Task added succesfully")
+    if(confirmation){
+      setTasks([...tasks, { text: task, completed: false }]);
+    
+    }
   }
 
   return (

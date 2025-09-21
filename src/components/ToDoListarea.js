@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/ToDoList.css";
 
+
 function ToDoListarea({ tasks, setTasks }) {
     const toggleComplete = (index) => {
         const newTasks = [...tasks];
@@ -13,6 +14,16 @@ function ToDoListarea({ tasks, setTasks }) {
         setTasks(newTasks);
     };
 
+    const permission = (index)=>{
+       const isConfirmed = window.confirm("Are you sure you want to delete this task.");
+       if(isConfirmed){
+        deleteTask(index)
+       }
+    }
+   
+
+
+
     return (
         <div className='todolist-Rootcontainer'>
             <div className='todolist-childcontainer'>
@@ -22,26 +33,36 @@ function ToDoListarea({ tasks, setTasks }) {
                 <div className='todo-listcontainer'>
                     {tasks.map((task, index) => (
                         <li key={index} className="task-item">
-                            
-                                <input
-                                    type='checkbox'
-                                    checked={task.completed}
-                                    onChange={() => toggleComplete(index)}
-                                    id='triger'
-                                />
-                                <p style={{ textDecoration: task.completed }}>
-                                    {task.text}
-                                </p>
-                           
-                            <button className="delete-btn" onClick={() => deleteTask(index)}>
+
+                            <input
+                                type='checkbox'
+                                checked={task.completed}
+                                onChange={() => toggleComplete(index)}
+                                id='triger'
+                            />
+                            <p style={{ textDecoration: task.completed ? "line-through" : "none" }}>
+                                {task.text}
+                            </p>
+
+                            <button className="delete-btn" onClick={()=>{
+                                
+                                  permission(index)
+                                 
+                                 
+                            }}>
                                 Delete
+
                             </button>
+                          
+
                         </li>
                     ))}
                 </div>
             </div>
+            
         </div>
     )
 }
 
 export default ToDoListarea;
+// {() => deleteTask(index)}

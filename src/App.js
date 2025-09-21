@@ -3,6 +3,7 @@ import './App.css';
 import Inputarea from './components/Inputarea';
 import ToDoListarea from './components/ToDoListarea';
 
+
 function App() {
 
 const [tasks, setTasks] =useState([]);
@@ -13,6 +14,7 @@ const [tasks, setTasks] =useState([]);
       <h1 style={{textAlign:"center",fontFamily:"sans-serif",fontSize:"40px",marginTop:"0px",padding:"1rem"}}>To-Do Application</h1>
       <Inputarea  tasks = {tasks} setTasks={setTasks}/>
       <ToDoListarea tasks = {tasks} setTasks= {setTasks} />
+      
     </div>
   );
 }
