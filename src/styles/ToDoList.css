@@ -9,6 +9,7 @@
     border-radius: 5px;
     padding: 1rem;
     margin-top: 20px;
+    height: 100vh;
     /* height: 500px; */
     overflow-y: scroll;
     overflow-x: hidden;
@@ -32,6 +33,7 @@
     /* border: 1px solid black; */
     margin-top: 0px;
     border-radius: 0.5rem;
+  
 }
 
 .todolist-heading h2 {
@@ -41,6 +43,7 @@
     font-size: 25px;
     color: black;
     border-radius: 0.5rem;
+      font-weight: 20px;
 }
 .todo-listcontainer{
     /* border: 1px solid red; */
@@ -56,10 +59,6 @@
 }
 .list-buttons{
     padding: 5px;   
-}
-
-.todolist-Rootcontainer {
-  margin: 20px;
 }
 
 .task-list {
@@ -107,7 +106,8 @@
 @media (max-width:786px) {
   .todolist-Rootcontainer{
     width: 100vw;
-    height: 100vh;
+    max-width: 100vh;
+    /* border: 1px solid red; */
   }
   .todo-listcontainer{
     max-width: 100%;

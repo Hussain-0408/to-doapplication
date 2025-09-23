@@ -7,22 +7,25 @@ function ToDoListarea({ tasks, setTasks }) {
         const newTasks = [...tasks];
         newTasks[index].completed = !newTasks[index].completed;
         setTasks(newTasks);
+
     };
 
     const deleteTask = (index) => {
+
         const newTasks = tasks.filter((_, i) => i !== index); // remove by index
         setTasks(newTasks);
+        
+
+
     };
 
-    const permission = (index)=>{
-       const isConfirmed = window.confirm("Are you sure you want to delete this task.");
-       if(isConfirmed){
-        deleteTask(index)
-       }
+    const permission = (index) => {
+        const isConfirmed = window.confirm("Are you sure you want to delete this task.");
+        if (isConfirmed) {
+            deleteTask(index)
+        }
+
     }
-   
-
-
 
     return (
         <div className='todolist-Rootcontainer'>
@@ -33,33 +36,23 @@ function ToDoListarea({ tasks, setTasks }) {
                 <div className='todo-listcontainer'>
                     {tasks.map((task, index) => (
                         <li key={index} className="task-item">
-
                             <input
                                 type='checkbox'
                                 checked={task.completed}
-                                onChange={() => toggleComplete(index)}
+                                onChange={(e) =>toggleComplete(index) }
                                 id='triger'
                             />
                             <p style={{ textDecoration: task.completed ? "line-through" : "none" }}>
                                 {task.text}
                             </p>
-
-                            <button className="delete-btn" onClick={()=>{
-                                
-                                  permission(index)
-                                 
-                                 
-                            }}>
+                            <button className="delete-btn" onClick={() => { permission(index) }}>
                                 Delete
-
                             </button>
-                          
-
                         </li>
                     ))}
                 </div>
             </div>
-            
+
         </div>
     )
 }

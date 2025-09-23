@@ -15,7 +15,7 @@ function Inputarea({ tasks, setTasks }) {
     const confirmation = window.confirm("Task added succesfully")
     if(confirmation){
       setTasks([...tasks, { text: task, completed: false }]);
-    
+      
     }
   }
 
